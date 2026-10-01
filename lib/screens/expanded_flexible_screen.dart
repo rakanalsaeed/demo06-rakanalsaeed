@@ -34,18 +34,22 @@ class ExpandedFlexibleScreen extends StatelessWidget {
                   //   ),
                   // )
                   // ========================================================
-                  Container(
-                    width: 100,
-                    color: Colors.indigo,
-                    child: const Center(child: Text('fixed 100')),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      color: Colors.indigo,
+                      child: const Center(child: Text('flex: 1')),
+                    ),
                   ),
                   const SizedBox(width: 8),
 
                   // TASK 4B TODO: Do the same here, but use Expanded(flex: 2).
-                  Container(
-                    width: 100,
-                    color: Colors.teal,
-                    child: const Center(child: Text('fixed 100')),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      color: Colors.teal,
+                      child: const Center(child: Text('flex: 2')),
+                    ),
                   ),
                 ],
               ),
