@@ -37,10 +37,38 @@ class TabsScreen extends StatelessWidget {
     //   ),
     // );
     // ============================================================
-    return Scaffold(
-      appBar: AppBar(title: const Text('Task 2 - Tabs')),
-      body: const Center(
-        child: Text('TODO 2: Create Overview, Code, and Tips tabs.'),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Task 2 - Tabs'),
+          bottom: const TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.info_outline), text: 'Overview'),
+              Tab(icon: Icon(Icons.code), text: 'Code'),
+              Tab(icon: Icon(Icons.lightbulb_outline), text: 'Tips'),
+            ],
+          ),
+        ),
+        body: const TabBarView(
+          children: [
+            TabContent(
+              icon: Icons.info_outline,
+              title: 'Overview',
+              text: 'Tabs organize closely related views on one screen.',
+            ),
+            TabContent(
+              icon: Icons.code,
+              title: 'Code',
+              text: 'DefaultTabController keeps TabBar and TabBarView synchronized.',
+            ),
+            TabContent(
+              icon: Icons.lightbulb_outline,
+              title: 'Tips',
+              text: 'The number of tabs must match the number of TabBarView children.',
+            ),
+          ],
+        ),
       ),
     );
   }
