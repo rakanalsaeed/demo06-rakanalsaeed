@@ -18,7 +18,10 @@ class ExternalLinkScreen extends StatelessWidget {
     //   mode: LaunchMode.externalApplication,
     // );
     // ============================================================
-    final opened = false; // TODO 3: replace this line.
+    final opened = await launchUrl(
+      _flutterUrl,
+      mode: LaunchMode.externalApplication,
+    );
 
     if (!opened && context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
