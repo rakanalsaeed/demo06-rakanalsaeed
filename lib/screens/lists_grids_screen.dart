@@ -42,7 +42,17 @@ class ListsGridsScreen extends StatelessWidget {
             //   ),
             // )
             // ============================================================
-            const SizedBox(height: 120, child: Center(child: Text('TODO 6A: ListView.builder'))),
+            Expanded(
+              child: ListView.builder(
+                itemCount: topics.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: CircleAvatar(child: Text('${index + 1}')),
+                    title: Text(topics[index]),
+                  );
+                },
+              ),
+            ),
 
             const Divider(height: 24),
             const Text('6B - GridView', style: TextStyle(fontWeight: FontWeight.bold)),
@@ -69,7 +79,22 @@ class ListsGridsScreen extends StatelessWidget {
             //   ),
             // )
             // ============================================================
-            const SizedBox(height: 120, child: Center(child: Text('TODO 6B: GridView.builder'))),
+            Expanded(
+              child: GridView.builder(
+                itemCount: topics.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 8,
+                  mainAxisSpacing: 8,
+                  childAspectRatio: 2.4,
+                ),
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: Center(child: Text(topics[index])),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
