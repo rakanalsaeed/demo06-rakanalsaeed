@@ -21,9 +21,9 @@ class _NavigationLabScreenState extends State<NavigationLabScreen> {
   // Keep the same order: Home = 0, Tabs = 1, Links = 2.
   // ============================================================
   final List<Widget> _pages = const [
-    _StarterPage(title: 'Home placeholder', message: 'TODO 1A: connect NavigationHomePage.'),
-    _StarterPage(title: 'Tabs placeholder', message: 'TODO 1A: connect TabsScreen.'),
-    _StarterPage(title: 'Links placeholder', message: 'TODO 1A: connect ExternalLinkScreen.'),
+    NavigationHomePage(),
+    TabsScreen(),
+    ExternalLinkScreen(),
   ];
 
   @override
@@ -50,11 +50,18 @@ class _NavigationLabScreenState extends State<NavigationLabScreen> {
       //   ],
       // ),
       // ============================================================
-      bottomNavigationBar: const SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(12),
-          child: Text('TODO 1B: BottomNavigationBar goes here', textAlign: TextAlign.center),
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.tab), label: 'Tabs'),
+          BottomNavigationBarItem(icon: Icon(Icons.link), label: 'Links'),
+        ],
       ),
     );
   }
