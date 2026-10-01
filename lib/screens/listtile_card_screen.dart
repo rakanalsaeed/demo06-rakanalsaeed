@@ -46,15 +46,24 @@ class ListTileCardScreen extends StatelessWidget {
             //   const SnackBar(content: Text('Sara selected')),
             // );
             // ============================================================
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
-              child: const Row(
-                children: [
-                  Icon(Icons.person),
-                  SizedBox(width: 12),
-                  Expanded(child: Text('Sara Ahmed - sara@kfupm.edu.sa')),
-                ],
+            Card(
+              child: ListTile(
+                leading: const CircleAvatar(child: Icon(Icons.person)),
+                title: const Text('Sara Ahmed'),
+                subtitle: const Text('sara@kfupm.edu.sa'),
+                trailing: IconButton(
+                  icon: const Icon(Icons.favorite_border),
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Favorite pressed')),
+                    );
+                  },
+                ),
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Sara selected')),
+                  );
+                },
               ),
             ),
           ],
